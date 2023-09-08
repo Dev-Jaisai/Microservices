@@ -18,11 +18,12 @@ public class DedupeController {
     @GetMapping("/check")
     public ResponseEntity<DedupeDto> checkDedupe(@RequestParam String panCard) {
         DedupeDto dedupeResult = dedupeService.processUserData(panCard);
-
+        System.out.println(" ");
         if (dedupeResult != null) {
             return ResponseEntity.ok(dedupeResult);
         } else {
             return ResponseEntity.notFound().build();
+
         }
     }
 }
